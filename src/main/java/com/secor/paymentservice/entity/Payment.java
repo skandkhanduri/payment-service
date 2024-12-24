@@ -1,0 +1,93 @@
+package com.secor.paymentservice.entity;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "Payments")
+public class Payment {
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "payment_Id", nullable = false, length = 50)
+    private Long paymentId;
+    @Column(name = "order_Id", nullable = false, length = 50)
+    private Long orderId;
+    private BigDecimal amount;
+    @Column(name = "payment_Method", nullable = false, length = 50)
+    private String paymentMethod;
+    private String status;
+    @Column(name = "created_At")
+
+    private LocalDateTime createdAt;
+    @Column(name = "updated_At")
+
+    private LocalDateTime updatedAt;
+
+    public void setPaymentId(Long paymentId) {
+        this.paymentId = paymentId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Long getPaymentId() {
+        return paymentId;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+}
